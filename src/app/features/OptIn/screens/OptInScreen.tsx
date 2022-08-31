@@ -1,12 +1,15 @@
 import { useEffect, useState } from 'react';
 import { getOfferAmount, getOptInUrl } from '../api/optin.api';
 import Countdown from '../components/Countdown/Countdown';
+import useCountdown from '../hooks/useCountdown';
 import styles from './OptInScreen.module.scss';
 
 const OptInScreen = () => {
   const [url, setUrl] = useState('');
 
   const [amount, setAmount] = useState(0);
+
+  const { time } = useCountdown();
 
   const getAmount = async () => {
     try {
@@ -39,11 +42,13 @@ const OptInScreen = () => {
           Get your free <strong>£{amount}</strong> now{' '}
         </h2>
         <Countdown />
-        <a href={url} target="_blank" rel="noreferrer">
-          <button>
-            <h3>Opt. in</h3>
-          </button>
-        </a>
+        {time.h + time.m + time.s !== 0 && (
+          <a href={url} target="_blank" rel="noreferrer">
+            <button>
+              <h3>Opt. in</h3>
+            </button>
+          </a>
+        )}
       </div>
     </main>
   );
