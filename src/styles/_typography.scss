@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+  font-size: 30px;
+  @include breakpoint-up(medium) {
+    font-size: 74px;
+  }
+}
+
+h2 {
+  font-size: 20px;
+  @include breakpoint-up(medium) {
+    font-size: 35px;
+  }
+}
+
+h3 {
+  font-size: 16px;
+  @include breakpoint-up(medium) {
+    font-size: 20px;
+  }
+}
+
+small {
+  @include breakpoint-up(medium) {
+    font-size: 16px;
+  }
+}

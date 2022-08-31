@@ -1,0 +1,13 @@
+{
+  "offer": {
+    "cash_value": 10
+  },
+  "timer": {
+    "hour": 0,
+    "minutes": 0,
+    "seconds": 0
+  },
+  "url": {
+    "jackpotjoyUrl": "https://www.jackpotjoy.com/"
+  }
+}
