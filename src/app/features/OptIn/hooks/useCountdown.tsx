@@ -1,23 +1,18 @@
 import { useEffect, useState } from "react";
 import { fetchCurrentTime, updateCurrentTime } from "../api/optin.api";
 import { SetTimeDef } from "../types/optin.types";
+import { useQuery } from "@tanstack/react-query";
 
 const useCountdown = () => {
   const [over, setOver] = useState<string>("start");
   const [loading, setLoading] = useState(false);
   const [[h, m, s], setTime] = useState([0, 0, 0]);
 
-  const getTimerData = async () => {
-    try {
-      setLoading(true);
-      const res = await fetchCurrentTime();
-      const { hour, minutes, seconds } = res.data;
-      setTime([hour, minutes, seconds]);
-      setLoading(false);
-    } catch (error) {
-      console.log("err", error);
-    }
-  };
+  //react query
+  const { data, status, isLoading } = useQuery(["repoData"], () =>
+    fetchCurrentTime().then((res) => res.data)
+  );
+  //react query
 
   const saveTimerData = async (timerData: SetTimeDef) => {
     try {
@@ -37,7 +32,7 @@ const useCountdown = () => {
   };
 
   const tick = () => {
-    if (!loading) {
+    if (!isLoading) {
       if (h === 0 && m === 0 && s === 0) setOver("end");
       else if (m === 0 && s === 0) {
         setOver("running");
@@ -53,8 +48,11 @@ const useCountdown = () => {
   };
 
   useEffect(() => {
-    getTimerData();
-  }, []);
+    if (status === "success") {
+      const { hour, minutes, seconds } = data;
+      setTime([hour, minutes, seconds]);
+    }
+  }, [status, data]);
 
   // timer
   let timerID: NodeJS.Timer;

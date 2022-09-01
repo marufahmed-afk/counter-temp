@@ -4,17 +4,25 @@ import Countdown from "../../components/Countdown/Countdown";
 import useCountdown from "../../hooks/useCountdown";
 import styles from "./OptInScreen.module.scss";
 
+import { useQuery } from "@tanstack/react-query";
+
 const OptInScreen = () => {
+  const { over, loading } = useCountdown();
+  //react query
+  const { data } = useQuery(["repoData"], () => getOfferAmount().then((res) => res.data));
+  console.log(data?.cash_value);
+  //react query
+
   const [url, setUrl] = useState("");
 
   const [amount, setAmount] = useState(0);
 
-  const { over, loading } = useCountdown();
-
   const getAmount = async () => {
+    console.log("calling");
     try {
       const res = await getOfferAmount();
       setAmount(res.data.cash_value);
+      // throw new Error("some error");
     } catch (error) {
       console.log("err", error);
     }
@@ -34,35 +42,28 @@ const OptInScreen = () => {
     getAmount();
   }, []);
 
-  // initial time 0 0 0 => button hidden
-  // initial time 1 0 0 => button shown
-
   return (
     <main className={styles.OptInScreen}>
-      {loading ? (
-        <h2>Loading...</h2>
-      ) : (
-        <div className={styles.OptInScreenBox}>
-          {(over === "running" || over === "start") && (
-            <>
-              <div data-testid="topImg" className={styles.topImg} />
-              <h2>
-                Get your free <strong data-testid="amount">£{amount}</strong> now
-              </h2>
-            </>
-          )}
-          <div className={styles.OptInScreenActions}>
-            <Countdown />
-            {(over === "running" || over === "start") && (
-              <a href={url} target="_blank" rel="noreferrer" data-testid="anchorTag">
-                <button data-testid="optInBtn">
-                  <h3>Opt. in</h3>
-                </button>
-              </a>
-            )}
-          </div>
+      <div className={styles.OptInScreenBox}>
+        {!over && loading && (
+          <>
+            <div data-testid="topImg" className={styles.topImg} />
+            <h2>
+              Get your free <strong data-testid="amount">£{amount}</strong> now
+            </h2>
+          </>
+        )}
+
+        <div className={styles.OptInScreenActions}>
+          <Countdown />
+
+          <a href={url} target="_blank" rel="noreferrer" data-testid="anchorTag">
+            <button data-testid="optInBtn">
+              <h3>Opt. in</h3>
+            </button>
+          </a>
         </div>
-      )}
+      </div>
     </main>
   );
 };

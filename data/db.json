@@ -4,8 +4,8 @@
   },
   "timer": {
     "hour": 0,
-    "minutes": 0,
-    "seconds": 0
+    "minutes": 59,
+    "seconds": 30
   },
   "url": {
     "jackpotjoyUrl": "https://www.jackpotjoy.com/"
