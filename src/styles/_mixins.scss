@@ -21,14 +21,14 @@ $breakpoints-down: (
   }
 }
 
-@mixin retina() {
-  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+@mixin breakpoint-down($size) {
+  @media (max-width: map-get($breakpoints-down, $size)) {
     @content;
   }
 }
 
-@mixin breakpoint-down($size) {
-  @media (max-width: map-get($breakpoints-down, $size)) {
+@mixin retina() {
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     @content;
   }
 }

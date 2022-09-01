@@ -1,5 +1,5 @@
-@use '../../../../styles/mixins';
-@import '../../../../styles/_variables.scss';
+@use '../../../../../styles/mixins';
+@import '../../../../../styles/_variables.scss';
 // @import '../../../../styles/_mixins.scss';
 // @import '../../../../styles/_globals.scss';
 
@@ -7,20 +7,20 @@
   @include mixins.center;
   height: 100vh;
   width: 100%;
-  background-image: url('../../../../assets/images/background_scale_1x.jpeg');
+  background-image: url('../../../../../assets/images/background_scale_1x.jpeg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   color: white;
 
   @include mixins.retina() {
-    background-image: url('../../../../assets/images/background_scale_2x.jpeg');
+    background-image: url('../../../../../assets/images/background_scale_2x.jpeg');
   }
 
   &Box {
     @include mixins.center;
     padding: 45px 30px;
-    background-color: $primary;
+    // background-color: $primary;
     width: 100%;
     max-width: 80vw;
     border-radius: 12px;
@@ -33,17 +33,26 @@
       margin-bottom: 35px;
     }
   }
+
+  &Actions {
+    & > *:not(:last-child) {
+      margin-bottom: 35px;
+    }
+    button {
+      width: 100%;
+    }
+  }
 }
 
 .topImg {
   width: 100%;
   height: 100px;
-  background-image: url('../../../../assets/images/top_image_scale_1x.png');
+  background-image: url('../../../../../assets/images/top_image_scale_1x.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 
   @include mixins.retina() {
-    background-image: url('../../../../assets/images/top_image_scale_2x.png');
+    background-image: url('../../../../../assets/images/top_image_scale_2x.png');
   }
 }

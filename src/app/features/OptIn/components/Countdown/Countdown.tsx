@@ -1,27 +1,26 @@
-import { makeTwoDigit } from '../../helpers/util.helper';
-import useCountdown from '../../hooks/useCountdown';
-import styles from './Countdown.module.scss';
+import { makeTwoDigit } from "../../helpers/util.helper";
+import useCountdown from "../../hooks/useCountdown";
+import styles from "./Countdown.module.scss";
 
 const Countdown = () => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { time, over } = useCountdown();
+  const { time } = useCountdown();
 
   return (
     <div className={styles.countdown}>
-      <div className={styles.countdownTimer}>
+      <div className={styles.countdownTimer} data-testid="countdown">
         <div className={styles.countdownTimerText}>
           <h1>{makeTwoDigit(time.h)}</h1>
-          <small>Hours</small>
+          <small data-testid="hourText">Hours</small>
         </div>
         <h1>:</h1>
         <div className={styles.countdownTimerText}>
           <h1>{makeTwoDigit(time.m)}</h1>
-          <small>Minutes</small>
+          <small data-testid="minutesText">Minutes</small>
         </div>
         <h1>:</h1>
         <div className={styles.countdownTimerText}>
           <h1>{makeTwoDigit(time.s)}</h1>
-          <small>Seconds</small>
+          <small data-testid="secondsText">Seconds</small>
         </div>
       </div>
     </div>

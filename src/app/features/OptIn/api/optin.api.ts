@@ -1,7 +1,7 @@
-import { AxiosResponse } from 'axios';
-import { api } from '../../../../api/api';
-import { OptInEndpointsEnum } from '../constants/optin.endpoints';
-import { SetTimeDef } from '../types/optin.types';
+import { AxiosResponse } from "axios";
+import { api } from "../../../../api/api";
+import { OptInEndpointsEnum } from "../constants/optin.endpoints";
+import { SetTimeDef } from "../types/optin.types";
 
 export const getOfferAmount = (): Promise<AxiosResponse> => {
   return api.get(OptInEndpointsEnum.OFFER);

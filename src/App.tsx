@@ -1,5 +1,5 @@
-import './styles/App.scss';
-import OptInScreen from './app/features/OptIn/screens/OptInScreen';
+import "./styles/App.scss";
+import OptInScreen from "./app/features/OptIn/screens/OptInScreen/OptInScreen";
 
 const App = () => {
   return (
