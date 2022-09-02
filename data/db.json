@@ -3,9 +3,9 @@
     "cash_value": 10
   },
   "timer": {
-    "hour": 0,
-    "minutes": 0,
-    "seconds": 0
+    "hour": 1,
+    "minutes": 23,
+    "seconds": 33
   },
   "url": {
     "jackpotjoyUrl": "https://www.jackpotjoy.com/"
