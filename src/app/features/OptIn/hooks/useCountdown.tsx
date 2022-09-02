@@ -1,4 +1,4 @@
-import { useAppDispatch, useAppSelector } from "../../../../redux/store";
+import { useAppDispatch, useAppSelector } from "@app/redux/store";
 import { useEffect } from "react";
 import { getCountdownData, saveCountdown, setCountdown } from "../redux/optIn.slice";
 
@@ -38,13 +38,10 @@ const useCountdown = () => {
   const tick = () => {
     if (h === 0 && m === 0 && s === 0) return;
     else if (m === 0 && s === 0) {
-      console.log("first");
       updateTime([h - 1, 59, 59]);
     } else if (s == 0) {
-      console.log("first");
       updateTime([h, m - 1, 59]);
     } else {
-      console.log("first");
       updateTime([h, m, s - 1]);
     }
   };

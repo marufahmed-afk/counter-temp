@@ -1,6 +1,17 @@
-## To run the json-server
+## Preparing the development environment
 
-### `json-server --watch -p 5000 data/db.json`
+### Installing
+
+### `yarn install`
+
+## Running the json-server
+
+**json-server npm package needs to be installed globally using the following command**
+
+Run `npm i -g json-server`
+
+Run `json-server --watch -p 5000 data/db.json`
+To run the json-server on port 5000 which is used as the baseUrl in env
 
 ## Client Scripts
 
@@ -31,4 +42,8 @@ Your app is ready to be deployed!
 
 ### Redux Toolkit
 
-For state management and manipulating api calls
+For state management and keeping the api calls organized in one place.
+
+### Axios
+
+I find it more convenient and have been using it over fetchApi as my work demands it as well.

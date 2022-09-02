@@ -1,6 +1,6 @@
-import { useAppDispatch, useAppSelector } from "../../../../../redux/store";
+import { useAppDispatch, useAppSelector } from "@app/redux/store";
 import { lazy, Suspense, useEffect } from "react";
-// import Countdown from "../../components/Countdown/Countdown";
+
 import { getAmount, getUrl } from "../../redux/optIn.slice";
 import styles from "./OptInScreen.module.scss";
 

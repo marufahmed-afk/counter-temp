@@ -1,5 +1,4 @@
 import axios from "axios";
-//TODO: add @app convention
 import { ENV } from "../constants/env";
 
 /** Setup an API instance */

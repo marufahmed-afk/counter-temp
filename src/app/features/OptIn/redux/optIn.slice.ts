@@ -87,6 +87,9 @@ export const optInSlice = createSlice({
       state.over = isOver(action.payload);
       state.countdown = action.payload;
     },
+    clearError: (state) => {
+      state.error = false;
+    },
   },
   extraReducers: (builder) => {
     /**
@@ -157,6 +160,6 @@ export const optInSlice = createSlice({
   },
 });
 
-export const { setCountdown } = optInSlice.actions;
+export const { setCountdown, clearError } = optInSlice.actions;
 
 export default optInSlice.reducer;
