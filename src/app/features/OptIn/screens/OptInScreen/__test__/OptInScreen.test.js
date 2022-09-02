@@ -2,9 +2,21 @@ import OptInScreen from "../OptInScreen";
 import { render, screen, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 
+import { Provider } from "react-redux";
+import { store } from "../../../../../../redux/store";
+
+// eslint-disable-next-line react/prop-types
+const ReduxProvider = ({ children, reduxStore }) => (
+  <Provider store={reduxStore}>{children}</Provider>
+);
+
 describe("OptInScreen", () => {
   beforeEach(() => {
-    render(<OptInScreen />);
+    render(
+      <ReduxProvider reduxStore={store}>
+        <OptInScreen />
+      </ReduxProvider>
+    );
   });
 
   it("should render the top image div", async () => {

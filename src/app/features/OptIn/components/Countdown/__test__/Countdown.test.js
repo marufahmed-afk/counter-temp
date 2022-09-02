@@ -1,10 +1,21 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import Countdown from "../Countdown";
+import { Provider } from "react-redux";
+import { store } from "../../../../../../redux/store";
+
+// eslint-disable-next-line react/prop-types
+const ReduxProvider = ({ children, reduxStore }) => (
+  <Provider store={reduxStore}>{children}</Provider>
+);
 
 describe("Countdown", () => {
   beforeEach(() => {
-    render(<Countdown />);
+    render(
+      <ReduxProvider reduxStore={store}>
+        <Countdown />
+      </ReduxProvider>
+    );
   });
 
   it("should render hour minute and seconds text", async () => {

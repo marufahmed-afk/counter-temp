@@ -1,4 +1,4 @@
-import { useAppDispatch, useAppSelector } from "@app/redux/store";
+import { useAppDispatch, useAppSelector } from "../../../../../redux/store";
 import { lazy, Suspense, useEffect } from "react";
 
 import { getAmount, getUrl } from "../../redux/optIn.slice";

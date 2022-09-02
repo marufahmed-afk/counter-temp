@@ -1,4 +1,4 @@
-import { useAppDispatch, useAppSelector } from "@app/redux/store";
+import { useAppDispatch, useAppSelector } from "../../../../redux/store";
 import { useEffect } from "react";
 import { getCountdownData, saveCountdown, setCountdown } from "../redux/optIn.slice";
 

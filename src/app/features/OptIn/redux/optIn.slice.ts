@@ -1,21 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { fetchCurrentTime, getOfferAmount, getOptInUrl, updateCurrentTime } from "../api/optin.api";
 import { isOver } from "../helpers/util.helper";
-
-export interface CountdownDef {
-  hour: number;
-  minutes: number;
-  seconds: number;
-}
-
-export interface OptInInitialState {
-  loading: boolean;
-  error: boolean;
-  amount: number;
-  url: string;
-  countdown: [hour: number, minutes: number, seconds: number];
-  over: boolean | null;
-}
+import { CountdownDef, OptInInitialState } from "../types/optin.types";
 
 const initialState: OptInInitialState = {
   error: false,

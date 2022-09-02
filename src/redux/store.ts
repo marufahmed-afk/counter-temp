@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import optInReducer from "@app/app/features/OptIn/redux/optIn.slice";
+import optInReducer from "../app/features/OptIn/redux/optIn.slice";
+
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 
 export const store = configureStore({
