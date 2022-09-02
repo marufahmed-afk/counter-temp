@@ -47,3 +47,9 @@ For state management and keeping the api calls organized in one place.
 ### Axios
 
 I find it more convenient and have been using it over fetchApi as my work demands it as well.
+
+### Added Extra
+
+- Added an error banner that pops up when api calls fail for handling errors.
+- Clicking on the cross button on the banner helps restart the countdown if server communication is established
+- Stopping the timer immediately when the api call fails which prevents from UI showing wrong updating countdown
